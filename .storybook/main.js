@@ -26,25 +26,19 @@ module.exports = {
               esModule: false,
             }
           },
-          {
-            // https://github.com/storybookjs/storybook/issues/6743
-            loader: 'sass-loader',
-            options: {
-              additionalData: `
-                @import "@cloud-platform/vue2-components-plugin/src/styles/styles.scss";
-              `
-            }
-          },
+          'sass-loader'
+          // This is now handled in preview.js but left here for reference
+          // {
+          //   // https://github.com/storybookjs/storybook/issues/6743
+          //   loader: 'sass-loader',
+          //   options: {
+          //     additionalData: `
+          //       @import "@cloud-platform/vue2-components-plugin/src/styles/styles.scss";
+          //     `
+          //   }
+          // },
         ]
     });
-
-    // config.module.rules.push({
-    //   test: /\.svg$/,
-    //   use: [
-    //     'svg-sprite-loader',
-    //     'svgo-loader'
-    //   ]
-    // });
 
     config.resolve.plugins = config.resolve.plugins || [];
     config.resolve.plugins.push(new TsconfigPathsPlugin({}));
